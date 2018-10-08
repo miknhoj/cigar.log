@@ -26,7 +26,6 @@ app.use(express.static(path.join(__dirname, 'client/build/index.html')));
 
 app.get('/', (req, res) => {res.sendFile(__dirname + '/client/build/index.html')})
 
-const indexRouter = require('./routes/index');
 const usersController = require('./routes/usersController');
 app.use('/api/users', usersController)
 
