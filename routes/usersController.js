@@ -25,4 +25,11 @@ router.put('/:id', async (req, res) => {
   const user = await User.findByIdAndUpdate(req.params.id, req.body, { new: true })
   res.send(user)
 })
+
+// DELETE
+router.delete('/:id/', async (req, res) => {
+  await User.findByIdAndRemove(req.params.id)
+  res.sendStatus(200)
+})
+
 module.exports = router;
