@@ -39,7 +39,18 @@ const john = new User({
     cigarLog: [cigarOne, cigarTwo]
 })
 
-User.deleteMany({})
-    .then(() => john.save())
-    .then(() => console.log('Successful Save'))
-    .then(() => mongoose.connection.close())
+const chris = new User({
+    userName: 'Chris',
+    age: 30,
+    location: 'Midtown, GA',
+    cigarLog: [cigarTwo]
+})
+
+User.deleteMany()
+    .then(() => { 
+        return User.insertMany([john, chris])
+    })
+    .then(() => {
+        console.log('Successful Save')
+        mongoose.connection.close()
+    })
