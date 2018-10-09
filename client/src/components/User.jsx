@@ -5,7 +5,8 @@ import { Redirect } from 'react-router-dom'
 export default class User extends Component {
     state = {
         user: {},
-        cigars: []
+        cigars: [],
+        updateUser: false
     }
 
     getUser = async () => {
@@ -28,23 +29,56 @@ export default class User extends Component {
         this.setState({ redirect: true })
     }
 
-  render() {
-      if (this.state.redirect){
-          return <Redirect to='/home'/>
-      }
-      const cigarsList = this.state.cigars.map((cigar, i) => {
-          return <div key={i}>
-            {cigar.cigarName}
+    handleChange = (e) => {
+        if (this.state.updateUser) { this.toggleUpdateUser() }
+        const updatedUser = { ...this.state.user }
+        updatedUser[e.target.name] = e.target.value
+        this.setState({ user: updatedUser })
+    }
 
-          </div>
-      })
-    return (
-      <div>
-          Single User 
-          <h1>{this.state.user.userName}</h1>
-          {cigarsList}
-          <button onClick={() => this.handleDelete()}>Delete User</button>
-      </div>
-    )
-  }
+    updateUser = async () => {
+        const userId = this.props.match.params.userId
+        const updatedUser = this.state.user
+        await axios.put(`/api/users/${userId}`, updatedUser)
+    }
+
+    toggleUpdateUser = () => {
+        this.setState({ updateUser: !this.state.updateUser })
+    }
+
+    render() {
+        if (this.state.redirect) {
+            return <Redirect to='/home' />
+        }
+        const cigarsList = this.state.cigars.map((cigar, i) => {
+            return <div key={i}>
+                {cigar.cigarName}
+
+            </div>
+        })
+        return (
+            <div>
+                Single User
+        {this.state.updateUser ?
+                    <form onSubmit={this.handleSubmit}>
+                        <div>
+                            <h1>{this.state.user.userName}</h1>
+                            <input type='text' name='userName' onChange={this.handleChange} value={this.state.user.userName} />
+                        </div>
+                    </form> :
+                    <div>
+                        <h1>{this.state.user.userName}</h1>
+                        <div>{this.state.user.age}</div>
+                        <div>{this.state.user.location}</div>
+                    </div>
+
+                }
+                <div>
+                    {cigarsList}
+                </div>
+                <button onClick={() => this.toggleUpdateUser()}>Edit User Details</button>
+                <button onClick={() => this.handleDelete()}>Delete User</button>
+            </div>
+        )
+    }
 }
