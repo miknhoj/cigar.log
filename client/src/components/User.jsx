@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Redirect } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 
 export default class User extends Component {
     state = {
@@ -45,13 +45,17 @@ export default class User extends Component {
         this.setState({ updateUser: !this.state.updateUser })
     }
 
+    
+
     render() {
         if (this.state.redirect) {
             return <Redirect to='/home' />
         }
         const cigarsList = this.state.cigars.map((cigar, i) => {
             return <div key={i}>
-                {cigar.cigarName}
+                <Link to ={`/users/${this.state.user._id}/${cigar._id}`}>
+                    {cigar.cigarName}
+                 </Link>
             </div>
         })
         return (
@@ -75,6 +79,7 @@ export default class User extends Component {
                 <div>
                     {cigarsList}
                 </div>
+                <button onClick={() => this.handleNewCigar}>Add New Cigar</button>
                 <button onClick={() => this.toggleUpdateUser()}>Edit User Details</button>
                 <button onClick={() => this.handleDelete()}>Delete User</button>
             </div>
