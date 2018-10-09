@@ -22,4 +22,15 @@ router.post('/', (req, res) => {
     })
 })
 
+// DELETE
+router.delete('/:id', (req, res) => {
+  User.findById(req.params.userId)
+    .then(user => {
+      return user.update({ $pull: {cigarLog: { _id: req.params.id}}})
+    })
+    .then(user => {
+      res.send(user)
+    })
+})
+
 module.exports = router;
