@@ -30,15 +30,14 @@ export default class User extends Component {
     }
 
     handleChange = (e) => {
-        if (this.state.updateUser) { this.toggleUpdateUser() }
         const updatedUser = { ...this.state.user }
         updatedUser[e.target.name] = e.target.value
         this.setState({ user: updatedUser })
     }
 
-    updateUser = async () => {
+    handleUpdate = async (e) => {
         const userId = this.props.match.params.userId
-        const updatedUser = this.state.user
+        const updatedUser =this.state.user
         await axios.put(`/api/users/${userId}`, updatedUser)
     }
 
@@ -53,18 +52,18 @@ export default class User extends Component {
         const cigarsList = this.state.cigars.map((cigar, i) => {
             return <div key={i}>
                 {cigar.cigarName}
-
             </div>
         })
         return (
             <div>
                 Single User
         {this.state.updateUser ?
-                    <form onSubmit={this.handleSubmit}>
-                        <div>
-                            <h1>{this.state.user.userName}</h1>
-                            <input type='text' name='userName' onChange={this.handleChange} value={this.state.user.userName} />
-                        </div>
+                    <form onSubmit={this.handleUpdate}>
+                        <h1>{this.state.user.userName}</h1>
+                        <input type='text' name='userName' onChange={this.handleChange} value={this.state.user.userName} />
+                        <input type='text' name='age' onChange={this.handleChange} value={this.state.user.age} />
+                        <input type='text' name='location' onChange={this.handleChange} value={this.state.user.location} />
+                        <input type='submit' value='Update User'/>
                     </form> :
                     <div>
                         <h1>{this.state.user.userName}</h1>

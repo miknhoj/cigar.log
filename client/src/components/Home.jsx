@@ -28,7 +28,7 @@ handleChange = (e) => {
     this.setState({ newUser })
 }
 
-handleSubmit = async (e) => {
+handleNew = async (e) => {
     e.preventDefault()
     if (this.state.newUser.userName.length < 4){
         this.toggleCreateError()
@@ -43,9 +43,6 @@ handleSubmit = async (e) => {
 toggleCreateError = () => {
     this.setState({ createError: !this.state.createError})
 }
-
-
-
   render() {
       const usersList = this.state.users.map((user, i) => {
           return (
@@ -63,7 +60,7 @@ toggleCreateError = () => {
       <div>
         Home
         {usersList}
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={this.handleNew}>
             <input type='text' name='userName' value={this.state.newUser.userName} placeholder='User Name' onChange={this.handleChange}/>
             <input type='text' name='age' value={this.state.newUser.age} placeholder='Age' onChange={this.handleChange}/>
             <input type='text' name='location' value={this.state.newUser.location} placeholder='Location' onChange={this.handleChange}/>
