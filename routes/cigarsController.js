@@ -11,10 +11,10 @@ router.get('/', async (req, res) => {
 
 // CREATE
 router.post('/', (req, res) => {
-  const newCigar = new Cigar()
+  const newCigar = new Cigar(req.body)
   User.findById(req.params.userId)
     .then((user) => {
-      user.cigars.push(newCigar)
+      user.cigarLog.push(newCigar)
       return user.save()
     })
     .then((user) => {
