@@ -18,19 +18,19 @@ export default class User extends Component {
     }
 
     componentDidMount = () => [
-        this.getUser
+        this.getUser()
     ]
 
   render() {
       const cigarsList = this.state.cigars.map((cigar, i) => {
           return <div key={i}>
-            {this.state.user.userName}
+            {cigar.cigarName}
           </div>
       })
     return (
       <div>
           Single User 
-          {this.state.user.userName}
+          <h1>{this.state.user.userName}</h1>
           {cigarsList}
       </div>
     )
