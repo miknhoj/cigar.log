@@ -34,3 +34,7 @@
 img {
   width: 50px;
 }
+
+input {
+  display: flex;
+}

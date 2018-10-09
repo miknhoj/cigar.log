@@ -6,7 +6,9 @@ export default class Home extends Component {
     state = {
         users:[],
         newUser: {
-            userName:''
+            userName:'',
+            age:'',
+            location:''
         },
         createError: false
     }
@@ -52,7 +54,7 @@ toggleCreateError = () => {
                     {user.userName}
                 </Link>
                 <div>
-                {user.age}, {user.location}
+                {user.age}, {user.location} 
                 </div>
               </div>
           )
@@ -62,7 +64,9 @@ toggleCreateError = () => {
         Home
         {usersList}
         <form onSubmit={this.handleSubmit}>
-            <input type='text' name='userName' value={this.state.newUser.userName} onChange={this.handleChange}/>
+            <input type='text' name='userName' value={this.state.newUser.userName} placeholder='User Name' onChange={this.handleChange}/>
+            <input type='text' name='age' value={this.state.newUser.age} placeholder='Age' onChange={this.handleChange}/>
+            <input type='text' name='location' value={this.state.newUser.location} placeholder='Location' onChange={this.handleChange}/>
             <input type='submit' value='Create New User' />
         </form>
         {this.state.createError ?
