@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export default class Home extends Component {
     state = {
@@ -9,7 +9,7 @@ export default class Home extends Component {
 
 componentDidMount = async () => {
     const response = await axios.get('/api/users')
-    console.log(response)
+    console.log('Home component', response)
     this.setState({ users: response.data })
 }
 
@@ -17,7 +17,9 @@ componentDidMount = async () => {
       const usersList = this.state.users.map((user, i) => {
           return (
               <div key={i}>
-                {user.userName}
+                <Link to ={`/users/${user._id}`}>
+                    {user.userName}
+                </Link>
               </div>
           )
       })
