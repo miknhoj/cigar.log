@@ -13,9 +13,12 @@ const CigarSchema = new Schema({
     notes: String    
 })
 
-
 const UserSchema = new Schema({
-    userName: String,
+    userName: {
+        type: String,
+        default: "New User",
+        minlength: 4
+    },
     age: Number,
     location: String,    
     cigarLog: [CigarSchema]

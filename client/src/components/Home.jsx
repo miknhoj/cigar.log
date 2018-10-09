@@ -7,7 +7,8 @@ export default class Home extends Component {
         users:[],
         newUser: {
             userName:''
-        }
+        },
+        createError: false
     }
 
 componentDidMount = async () => {
@@ -17,6 +18,9 @@ componentDidMount = async () => {
 }
 
 handleChange = (e) => {
+    if (this.state.createError) {
+        this.toggleCreateError()
+    }
     const newUser = {...this.state.newUser}
     newUser[e.target.name] = e.target.value
     this.setState({ newUser })
@@ -24,10 +28,18 @@ handleChange = (e) => {
 
 handleSubmit = async (e) => {
     e.preventDefault()
+    if (this.state.newUser.userName.length < 4){
+        this.toggleCreateError()
+        return
+    }
     const response = await axios.post('/api/users', this.state.newUser)
     const users = [...this.state.users]
     users.push(response.data)
     this.setState({users})
+}
+
+toggleCreateError = () => {
+    this.setState({ createError: !this.state.createError})
 }
 
 
@@ -39,6 +51,9 @@ handleSubmit = async (e) => {
                 <Link to ={`/users/${user._id}`}>
                     {user.userName}
                 </Link>
+                <div>
+                {user.age}, {user.location}
+                </div>
               </div>
           )
       })
@@ -50,6 +65,11 @@ handleSubmit = async (e) => {
             <input type='text' name='userName' value={this.state.newUser.userName} onChange={this.handleChange}/>
             <input type='submit' value='Create New User' />
         </form>
+        {this.state.createError ?
+        <div>
+            <p>user name must be four characters or longer</p>
+        </div> :
+        null}
 
       </div>
     )
