@@ -75,10 +75,10 @@ export default class Cigar extends Component {
 
     return (
       <div>
-        <div>
           {this.state.updateCigar ? updateCigarForm : cigarInfo}
-        </div>
+
         <button onClick={() => this.toggleUpdateCigar()}>Edit Cigar Details</button>
+        
       </div >
     )
   }

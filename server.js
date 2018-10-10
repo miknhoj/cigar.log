@@ -24,13 +24,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'client/build/')));
 
-app.get('/', (req, res) => {res.sendFile(__dirname + '/client/build/index.html')})
 
 const usersController = require('./routes/usersController');
 app.use('/api/users', usersController)
 
 const cigarsController = require('./routes/cigarsController');
 app.use('/api/users/:userId/cigarLog', cigarsController)
+
+app.get('/*', (req, res) => {res.sendFile(__dirname + '/client/build/index.html')})
 
 module.exports = app;
 
