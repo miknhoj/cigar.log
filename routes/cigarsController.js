@@ -35,14 +35,13 @@ router.put('/:id', (req, res) => {
   User.findById(req.params.userId)
     .then(user => {
       const cigar = user.cigarLog.id(req.params.id)
-      const updatedCigar = req.body
-
-      if (updatedCigar.cigarName) {
-        cigar.cigarName = updatedCigar.cigarName
-      }
-      if (updatedCigar.rating) {
-        cigar.rating = updatedCigar.rating
-      }
+      // take every key off req.body and store as an array
+      const attributes = Object.keys(req.body)
+      // iterate through all keys on req.body
+      attributes.forEach( leftSideOfColon => {
+        // set the value in cigar
+        cigar[leftSideOfColon] = req.body[leftSideOfColon]
+      })
       return user.save()
     })
     .then (user => {

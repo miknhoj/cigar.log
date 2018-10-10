@@ -28,9 +28,11 @@ export default class Cigar extends Component {
   }
 
   handleUpdate = async (e) => {
+    e.preventDefault()
     const userId = this.props.match.params.userId
     const cigarId = this.props.match.params.cigarId
     const updatedCigar = this.state.cigar
+    console.log(updatedCigar)
     await axios.put(`/api/users/${userId}/cigarLog/${cigarId}`, updatedCigar)
   }
   toggleUpdateCigar = () => {
@@ -51,7 +53,7 @@ export default class Cigar extends Component {
         <input type='text' name='wrapper' value={this.state.cigar.wrapper} placeholder='Wrapper' onChange={this.handleChange} />
         <input type='text' name='binder' value={this.state.cigar.binder} placeholder='Binder' onChange={this.handleChange} />
         <input type='text' name='filler' value={this.state.cigar.filler} placeholder='Filler' onChange={this.handleChange} />
-        <input type='text' name='notes' value={this.state.cigar.note} placeholder='Notes' onChange={this.handleChange} />
+        <input type='text' name='notes' value={this.state.cigar.notes} placeholder='Notes' onChange={this.handleChange} />
         <input type='submit' value='Update Cigar Details' />
       </form>
     )
@@ -70,7 +72,7 @@ export default class Cigar extends Component {
         <div>Notes: {cigar.notes}</div>
       </div>
     )
-    
+
     return (
       <div>
         <div>
