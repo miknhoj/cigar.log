@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link, Redirect } from 'react-router-dom'
+import NewCigarForm from './NewCigarForm';
 
 export default class User extends Component {
     state = {
@@ -37,7 +38,7 @@ export default class User extends Component {
 
     handleUpdate = async (e) => {
         const userId = this.props.match.params.userId
-        const updatedUser =this.state.user
+        const updatedUser = this.state.user
         await axios.put(`/api/users/${userId}`, updatedUser)
     }
 
@@ -45,7 +46,7 @@ export default class User extends Component {
         this.setState({ updateUser: !this.state.updateUser })
     }
 
-    
+
 
     render() {
         if (this.state.redirect) {
@@ -53,9 +54,9 @@ export default class User extends Component {
         }
         const cigarsList = this.state.cigars.map((cigar, i) => {
             return <div key={i}>
-                <Link to ={`/users/${this.state.user._id}/${cigar._id}`}>
+                <Link to={`/users/${this.state.user._id}/${cigar._id}`}>
                     {cigar.cigarName}
-                 </Link>
+                </Link>
             </div>
         })
         return (
@@ -67,7 +68,7 @@ export default class User extends Component {
                         <input type='text' name='userName' onChange={this.handleChange} value={this.state.user.userName} />
                         <input type='text' name='age' onChange={this.handleChange} value={this.state.user.age} />
                         <input type='text' name='location' onChange={this.handleChange} value={this.state.user.location} />
-                        <input type='submit' value='Update User'/>
+                        <input type='submit' value='Update User' />
                     </form> :
                     <div>
                         <h1>{this.state.user.userName}</h1>
@@ -79,7 +80,9 @@ export default class User extends Component {
                 <div>
                     {cigarsList}
                 </div>
-                <button onClick={() => this.handleNewCigar}>Add New Cigar</button>
+                <div>
+                    <NewCigarForm />
+                </div>
                 <button onClick={() => this.toggleUpdateUser()}>Edit User Details</button>
                 <button onClick={() => this.handleDelete()}>Delete User</button>
             </div>
