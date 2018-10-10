@@ -48,9 +48,9 @@ export default class User extends Component {
   addNewCigar = async (newCigar) => {
     // add new cigar to DB
     const userId = this.props.match.params.userId
-    axios.post(`/api/users/${userId}/cigarLog`, newCigar)
+    await axios.post(`/api/users/${userId}/cigarLog`, newCigar)
     // refresh data
-    this.getUser()
+    await this.getUser()
   }
 
   render() {
@@ -61,7 +61,7 @@ export default class User extends Component {
     const cigarsList = this.state.cigars.map((cigar, i) => {
       return (
         <div key={i}>
-          <Link to={`/users/${this.state.user._id}/${cigar._id}`}>
+          <Link to={`/users/${this.state.user._id}/cigarLog/${cigar._id}`}>
             {cigar.cigarName}
           </Link>
         </div>
