@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import axios from 'axios';
+import { Redirect } from 'react-router-dom'
 
 export default class Cigar extends Component {
   state = {
     cigar: {},
-    updateCigar: false
+    updateCigar: false,
+    redirect: false
   }
 
   getCigar = async () => {
@@ -39,7 +41,18 @@ export default class Cigar extends Component {
     this.setState({ updateCigar: !this.state.updateCigar })
   }
 
+  handleDelete = async () => {
+    const userId = this.props.match.params.userId
+    const cigarId = this.props.match.params.cigarId
+    await axios.delete(`/api/users/${userId}/cigarLog/${cigarId}`)
+    this.setState({ redirect: true })
+  }
+
   render() {
+    if (this.state.redirect) {
+      const userId = this.props.match.params.userId
+      return <Redirect to={`/users/${userId}`}/>
+    }
     const cigar = this.state.cigar
 
     const updateCigarForm = (
@@ -78,7 +91,7 @@ export default class Cigar extends Component {
           {this.state.updateCigar ? updateCigarForm : cigarInfo}
 
         <button onClick={() => this.toggleUpdateCigar()}>Edit Cigar Details</button>
-        
+        <button onClick={() => this.handleDelete()}>Delete Cigar</button>
       </div >
     )
   }
