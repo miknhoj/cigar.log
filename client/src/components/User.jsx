@@ -7,7 +7,8 @@ export default class User extends Component {
   state = {
     user: {},
     cigars: [],
-    updateUser: false
+    updateUser: false,
+    redirect: false
   }
 
   getUser = async () => {
