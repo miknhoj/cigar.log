@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom'
 
+
 export default class Home extends Component {
   state = {
     users: [],
@@ -76,6 +77,9 @@ export default class Home extends Component {
           </form> :
           null
         }
+        {/* <Icon className={classes.icon} color="secondary">
+        add_circle
+      </Icon> */}
         <button onClick={()=>this.toggleCreateUser()}>{this.state.createUser ? 'Cancel' : 'Add New User'} </button>
         {this.state.createError ?
           <div>
@@ -83,7 +87,6 @@ export default class Home extends Component {
           </div> :
           null
         }
-
       </div >
     )
   }

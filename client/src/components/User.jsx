@@ -93,7 +93,7 @@ export default class User extends Component {
         Single User
         {this.state.updateUser ? newUserForm : userInfo}
 
-        <button onClick={() => this.toggleUpdateUser()}>Edit User Details</button>
+        <button onClick={() => this.toggleUpdateUser()}>{this.state.updateUser ? 'Back' : 'Edit User Details'}</button>
 
         {cigarsList}
 

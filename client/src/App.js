@@ -5,6 +5,7 @@ import Welcome from './components/Welcome'
 import Home from './components/Home'
 import User from './components/User'
 import Cigar from './components/Cigar'
+// import Icon from './components/Icons'
 
 class App extends Component {
   render() {
