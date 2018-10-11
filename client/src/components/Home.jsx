@@ -71,7 +71,7 @@ export default class Home extends Component {
     })
     return (
       <div>
-        <h1>Users</h1>
+        <div className="header">Users</div>
           <div>
             {usersList}
 
@@ -85,7 +85,7 @@ export default class Home extends Component {
               null
             }
 
-            <Button variant="contained" color="primary" onClick={() => this.toggleCreateUser()}>{this.state.createUser ? 'Cancel' : 'Add New User'} </Button>
+            <Button variant="contained" style={{backgroundColor:'#118293'}} onClick={() => this.toggleCreateUser()}>{this.state.createUser ? 'Cancel' : 'Add New User'} </Button>
             <AddButton toggleCreateUser={this.toggleCreateUser}>{this.state.createUser ? 'Cancel' : 'Add New User'} </AddButton>
           </div>
 

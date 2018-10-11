@@ -25,7 +25,26 @@ form {
   width: 50vw;
 }
 
-h1 {
-  color: #F9A05C;
+.welcome-page{
+  margin-top: 30vh;
+}
+.welcome {
+  margin-bottom: -40px;
+  color: #F9E49F;
 }
 
+.title {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 70px;
+  color: #FCCF5D;
+}
+
+.header {
+  font-family: 'Permanent Marker', cursive;
+  font-size: 70px;
+  color: #FCCF5D;
+}
+
+h3 {
+  color: #F9A05C;
+}
