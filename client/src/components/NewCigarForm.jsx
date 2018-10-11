@@ -3,7 +3,15 @@ import React, { Component } from 'react'
 export default class NewCigarForm extends Component {
   state = {
     newCigar: {
-      cigarName: '',
+      cigarName:'',
+      rating:'',
+      manufactuer:'',
+      origin:'',
+      strength: '',
+      wrapper:'',
+      binder: '',
+      filler: '',
+      notes: ''
     }
   }
 

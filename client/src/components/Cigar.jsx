@@ -58,7 +58,7 @@ export default class Cigar extends Component {
     const updateCigarForm = (
       <form onSubmit={this.handleUpdate}>
         <input type='text' name='cigarName' value={this.state.cigar.cigarName} placeholder='Cigar Name' onChange={this.handleChange} />
-        <input type='text' name='rating' value={this.state.cigar.rating} placeholder='Rating' onChange={this.handleChange} />
+        <input type='number' name='rating' min='1' max='5' value={this.state.cigar.rating} placeholder='Rating' onChange={this.handleChange} />
         <input type='text' name='manufacturer' value={this.state.cigar.manufacturer} placeholder='Manufacturer' onChange={this.handleChange} />
         <input type='text' name='origin' value={this.state.cigar.origin} placeholder='Origin' onChange={this.handleChange} />
         <input type='text' name='body' value={this.state.cigar.body} placeholder='Body' onChange={this.handleChange} />

@@ -37,6 +37,7 @@ export default class User extends Component {
   }
 
   handleUpdate = async (e) => {
+    e.preventDefault()
     const userId = this.props.match.params.userId
     const updatedUser = this.state.user
     await axios.put(`/api/users/${userId}`, updatedUser)
