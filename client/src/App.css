@@ -1,6 +1,6 @@
-/* body {
+body {
   text-align: center;
-} */
+}
 
 img {
   width: 50px;
@@ -10,4 +10,11 @@ input {
   display: flex;
 }
 
+.userList {
+  padding: 20px 0 20px 0;
+}
 
+form {
+  margin: 0 auto;
+  width: 50vw;
+}
