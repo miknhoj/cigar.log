@@ -90,7 +90,7 @@ export default class Cigar extends Component {
       <div>
           {this.state.updateCigar ? updateCigarForm : cigarInfo}
 
-        <button onClick={() => this.toggleUpdateCigar()}>Edit Cigar Details</button>
+        <button onClick={() => this.toggleUpdateCigar()}>{this.state.updateCigar ? 'Cancel' : 'Edit Cigar Details'}</button>
         <button onClick={() => this.handleDelete()}>Delete Cigar</button>
       </div >
     )

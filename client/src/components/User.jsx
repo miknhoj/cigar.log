@@ -97,7 +97,7 @@ export default class User extends Component {
 
         {cigarsList}
 
-        <NewCigarForm addNewCigar={this.addNewCigar} />
+         <NewCigarForm addNewCigar={this.addNewCigar}/>
 
         <button onClick={() => this.handleDelete()}>Delete User</button>
       </div>
