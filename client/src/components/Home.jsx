@@ -76,7 +76,7 @@ export default class Home extends Component {
           </form> :
           null
         }
-        <button onClick={()=>this.toggleCreateUser()}>Add New User</button>
+        <button onClick={()=>this.toggleCreateUser()}>{this.state.createUser ? 'Cancel' : 'Add New User'} </button>
         {this.state.createError ?
           <div>
             <p>user name must be four characters or longer</p>
