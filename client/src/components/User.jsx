@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Link, Redirect } from 'react-router-dom'
 import NewCigarForm from './NewCigarForm';
 import { Paper } from '@material-ui/core';
+import _ from 'lodash'
 
 export default class User extends Component {
   state = {
@@ -79,24 +80,11 @@ export default class User extends Component {
       )
     })
 
-  const ratingSort = this.state.cigars.sort(function(a, b) {
-    return(
-      b.rating - a.rating
-    )
-  })
+  let ratingSort = this.state.cigars;
+  console.log(ratingSort)
+    ratingSort = _.orderBy(ratingSort, ['rating'],['desc']);
+    // this.setState({cigars: ratingSort})
   
-    // const ratingCompare = (a ,b) => {
-    //   return (b -a)
-    // }
-
-    // const attributes = Object.keys(this.state.cigars)
-
-    // const ratingList = this.state.cigars.sort(ratingCompare(attributes.rating) {
-    //   return (
-    //     b - a
-    //     )
-    // })
-
     const newUserForm = (
       <form onSubmit={this.handleUpdate}>
         <h1>{this.state.user.userName}</h1>
@@ -121,7 +109,7 @@ export default class User extends Component {
 
         <button onClick={() => this.toggleUpdateUser()}>{this.state.updateUser ? 'Back' : 'Edit User Details'}</button>
         <button onClick={() => this.toggleSort()}>{this.state.sort ? 'Sort by Name' : 'Sort by Rating'}</button>
-        {this.state.sort ? ratingSort : cigarsList}
+        {JSON.stringify(ratingSort)}
 
 
         <NewCigarForm addNewCigar={this.addNewCigar} />
