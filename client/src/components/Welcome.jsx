@@ -5,9 +5,10 @@ export default class Home extends Component {
   render() {
     return (
       <div className="welcome-page">
-          <div className="welcome">Welcome to</div>
+          <div className="intro">Welcome to</div>
           <div className="title">Cigar.log</div>
-          <h3>the app to help you keep track of the cigars you enjoy.</h3>
+          <div className="intro">the app to help you keep track of the cigars you enjoy. </div>
+          <div className="click">Click the fire to begin.</div>
           <Link to ='/home'><img src="https://ubisafe.org/images/fire-svg-1.png" alt={'have to be'}/></Link>
           
       </div>
