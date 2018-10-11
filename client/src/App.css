@@ -10,11 +10,22 @@ input {
   display: flex;
 }
 
-.list {
+.list{
   padding: 20px 0 20px 0;
+  background-color: #FCCF5D;
+  margin: 5px
+}
+
+.paper {
+  background-color: #FCCF5D;
 }
 
 form {
   margin: 0 auto;
   width: 50vw;
 }
+
+h1 {
+  color: #F9A05C;
+}
+

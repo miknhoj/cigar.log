@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios';
 import { Redirect } from 'react-router-dom'
-
+import { Paper } from '@material-ui/core'
+import Button from '@material-ui/core/Button'
 
 export default class Cigar extends Component {
   state = {
@@ -88,11 +89,13 @@ export default class Cigar extends Component {
     )
 
     return (
+      
       <div>
+        <Paper>
           {this.state.updateCigar ? updateCigarForm : cigarInfo}
-
-        <button onClick={() => this.toggleUpdateCigar()}>{this.state.updateCigar ? 'Cancel' : 'Edit Cigar Details'}</button>
-        <button onClick={() => this.handleDelete()}>Delete Cigar</button>
+          </Paper>
+        <Button variant="contained" color="primary" onClick={() => this.toggleUpdateCigar()}>{this.state.updateCigar ? 'Cancel' : 'Edit Cigar Details'}</Button>
+        <Button variant="contained" color="secondary" onClick={() => this.handleDelete()}>Delete Cigar</Button>
       </div >
     )
   }

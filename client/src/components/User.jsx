@@ -64,18 +64,20 @@ export default class User extends Component {
 
     const cigarsList = this.state.cigars.map((cigar, i) => {
       return (
-        <Paper key={i}>
-          <div className="list">
+        
+          <div key={i} className="list">
+          <Paper>
             <Link to={`/users/${this.state.user._id}/cigarLog/${cigar._id}`}>
               {cigar.cigarName}
             </Link>
             <div> Rating: {cigar.rating} </div>
+          </Paper>
           </div>
-        </Paper>
+       
       )
     })
   
-    const newUserForm = (
+    const updateForm = (
       <form onSubmit={this.handleUpdate}>
         <h1>{this.state.user.userName}</h1>
         <input type='text' name='userName' onChange={this.handleChange} value={this.state.user.userName} />
@@ -95,7 +97,7 @@ export default class User extends Component {
 
     return (
       <div>
-        {this.state.updateUser ? newUserForm : userInfo}
+        {this.state.updateUser ? updateForm : userInfo}
 
         <button onClick={() => this.toggleUpdateUser()}>{this.state.updateUser ? 'Back' : 'Edit User Details'}</button>
         <button onClick={() => this.toggleSort()}>{this.state.sort ? 'Sort by Name' : 'Sort by Rating'}</button>

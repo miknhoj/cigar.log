@@ -57,7 +57,7 @@ export default class Home extends Component {
   render() {
     const usersList = this.state.users.map((user, i) => {
       return (
-        <Paper key={i}>
+        <Paper style={{padding: 10, backgroundColor: '#FCCF5D', margin:15}}key={i}>
           <div className='list'>
             <Link to={`/users/${user._id}`}>
               {user.userName}
