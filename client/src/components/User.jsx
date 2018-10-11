@@ -2,13 +2,15 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Link, Redirect } from 'react-router-dom'
 import NewCigarForm from './NewCigarForm';
+import { Paper } from '@material-ui/core';
 
 export default class User extends Component {
   state = {
     user: {},
     cigars: [],
     updateUser: false,
-    redirect: false
+    redirect: false,
+    sort: false
   }
 
   getUser = async () => {
@@ -47,6 +49,10 @@ export default class User extends Component {
     this.setState({ updateUser: !this.state.updateUser })
   }
 
+  toggleSort = () => {
+    this.setState({ sort: !this.state.sort })
+  }
+
   addNewCigar = async (newCigar) => {
     // add new cigar to DB
     const userId = this.props.match.params.userId
@@ -62,13 +68,34 @@ export default class User extends Component {
 
     const cigarsList = this.state.cigars.map((cigar, i) => {
       return (
-        <div key={i}>
-          <Link to={`/users/${this.state.user._id}/cigarLog/${cigar._id}`}>
-            {cigar.cigarName}
-          </Link>
-        </div>
+        <Paper key={i}>
+          <div className="list">
+            <Link to={`/users/${this.state.user._id}/cigarLog/${cigar._id}`}>
+              {cigar.cigarName}
+            </Link>
+            <div> Rating: {cigar.rating} </div>
+          </div>
+        </Paper>
       )
     })
+
+  const ratingSort = this.state.cigars.sort(function(a, b) {
+    return(
+      b.rating - a.rating
+    )
+  })
+  
+    // const ratingCompare = (a ,b) => {
+    //   return (b -a)
+    // }
+
+    // const attributes = Object.keys(this.state.cigars)
+
+    // const ratingList = this.state.cigars.sort(ratingCompare(attributes.rating) {
+    //   return (
+    //     b - a
+    //     )
+    // })
 
     const newUserForm = (
       <form onSubmit={this.handleUpdate}>
@@ -93,10 +120,11 @@ export default class User extends Component {
         {this.state.updateUser ? newUserForm : userInfo}
 
         <button onClick={() => this.toggleUpdateUser()}>{this.state.updateUser ? 'Back' : 'Edit User Details'}</button>
+        <button onClick={() => this.toggleSort()}>{this.state.sort ? 'Sort by Name' : 'Sort by Rating'}</button>
+        {this.state.sort ? ratingSort : cigarsList}
 
-        {cigarsList}
 
-         <NewCigarForm addNewCigar={this.addNewCigar}/>
+        <NewCigarForm addNewCigar={this.addNewCigar} />
 
         <button onClick={() => this.handleDelete()}>Delete User</button>
       </div>

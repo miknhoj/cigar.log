@@ -58,7 +58,7 @@ export default class Home extends Component {
     const usersList = this.state.users.map((user, i) => {
       return (
         <Paper key={i}>
-          <div className='userList'>
+          <div className='list'>
             <Link to={`/users/${user._id}`}>
               {user.userName}
             </Link>
