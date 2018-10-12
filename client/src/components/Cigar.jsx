@@ -61,6 +61,7 @@ export default class Cigar extends Component {
     const updateCigarForm = (
       <Paper style={{ padding: 10, backgroundColor: '#FCCF5D', margin: 15 }}>
       <form onSubmit={this.handleUpdate}>
+      <div>
         <input type='text' name='cigarName' value={this.state.cigar.cigarName} placeholder='Cigar Name' onChange={this.handleChange} />
         <input type='text' name='rating' value={this.state.cigar.rating} placeholder='Rating 1-100' onChange={this.handleChange} />
         <input type='text' name='manufacturer' value={this.state.cigar.manufacturer} placeholder='Manufacturer' onChange={this.handleChange} />
@@ -72,6 +73,7 @@ export default class Cigar extends Component {
         <input type='text' name='filler' value={this.state.cigar.filler} placeholder='Filler' onChange={this.handleChange} />
         <input type='text' name='notes' value={this.state.cigar.notes} placeholder='Notes' onChange={this.handleChange} />
         <button className='button' type='submit'> Update Cigar Details </button>
+        </div>
       </form>
       </Paper>
     )

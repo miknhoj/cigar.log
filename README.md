@@ -33,7 +33,7 @@ Using ternary operators is a great way to simplify your code. For this project I
 * MongoDB Compass
 ---
 ## Shout Outs
-Daniel, Andrew, MOON!(finding all my stupid syntax errors), Taylor, Lauren, Emmy, Gouda, Qing (Awesome set up instructions), Evening TA's James and William.
+Daniel, Andrew, MOON!(finding all my stupid syntax errors), Taylor, Lauren, Emmy, Ivy, Gouda, Qing (Awesome set up instructions), basically the back table, Evening TA's James and William.
 
 ---
 ## Final Thoughts and Version 2.0
