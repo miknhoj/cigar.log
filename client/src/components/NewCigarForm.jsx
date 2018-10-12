@@ -43,7 +43,7 @@ export default class NewCigarForm extends Component {
     return (
       <div>
         {this.state.createCigar ?
-          <Paper >
+          <Paper style={{ padding: 10, backgroundColor: '#FCCF5D', margin: 'auto', maxWidth: '500px' }}>
             <form onSubmit={this.handleNew}>
             <div>
               <input type='text' name='cigarName' value={this.state.newCigar.cigarName} placeholder='Cigar Name' onChange={this.handleChange} />

@@ -65,45 +65,48 @@ export default class User extends Component {
 
     const cigarsList = this.state.cigars.map((cigar, i) => {
       return (
-        <Paper style={{ padding: 10, backgroundColor: '#FCCF5D', margin: 15 }} key={i}>
-          <Link to={`/users/${this.state.user._id}/cigarLog/${cigar._id}`}>
-            <div>
-              {cigar.cigarName}
-              <div> Rating: {cigar.rating} </div>
-            </div>
-          </Link>
-        </Paper>
+        <div className='margins'>
+          <Paper style={{ padding: 10, backgroundColor: '#FCCF5D', margin: 'auto', maxWidth: '500px' }} key={i}>
+            <Link to={`/users/${this.state.user._id}/cigarLog/${cigar._id}`}>
+              <div>
+                {cigar.cigarName}
+                <div> Rating: {cigar.rating} </div>
+              </div>
+            </Link>
+          </Paper>
+        </div>
       )
     })
 
     const updateForm = (
-      <Paper style={{ padding: 10, backgroundColor: '#FCCF5D', margin: 15 }} >
-      <form onSubmit={this.handleUpdate}>
-        <div><input type='text' name='userName' onChange={this.handleChange} value={this.state.user.userName} />
-        <input type='text' name='age' onChange={this.handleChange} value={this.state.user.age} />
-        <input type='text' name='location' onChange={this.handleChange} value={this.state.user.location} /></div>
-        <Button variant="contained" style={{ backgroundColor: '#118293', margin: 10 }} type='submit'>Update User</Button>
-      </form>
+      <Paper style={{ padding: 10, backgroundColor: '#FCCF5D', margin: 'auto', maxWidth: '500px' }} >
+        <form onSubmit={this.handleUpdate}>
+          <div><input type='text' name='userName' onChange={this.handleChange} value={this.state.user.userName} placeHolder='Name' />
+            <input type='text' name='age' onChange={this.handleChange} value={this.state.user.age} placeHolder='Age' />
+            <input type='text' name='location' onChange={this.handleChange} value={this.state.user.location} placeHolder='Location' />
+            <div><Button variant="contained" style={{ backgroundColor: '#118293', margin: 10 }} type='submit'>Update User</Button></div>
+          </div>
+        </form>
       </Paper>
     )
 
     const userInfo = (
-      <div> 
+      <div>
         <div className="sub">{this.state.user.age}</div>
         <div className="sub">{this.state.user.location}</div>
-        <Button variant="contained" color="secondary" style={{margin: 10}} onClick={() => this.handleDelete()}>Delete User</Button>
+        <Button variant="contained" color="secondary" style={{ margin: 10 }} onClick={() => this.handleDelete()}>Delete User</Button>
       </div>
     )
 
     return (
       <div>
         <div className="header">
-        {this.state.user.userName}
+          {this.state.user.userName}
         </div>
 
         {this.state.updateUser ? updateForm : userInfo}
 
-        <Button variant="contained" style={{ backgroundColor: '#118293', margin: 10 }} onClick={() => this.toggleUpdateUser()}>{this.state.updateUser ? 'Back' : 'Edit User Details'}</Button>
+        <Button variant="contained" style={{ backgroundColor: '#118293', margin: 10, }} onClick={() => this.toggleUpdateUser()}>{this.state.updateUser ? 'Back' : 'Edit User Details'}</Button>
         {/* <button onClick={() => this.toggleSort()}>{this.state.sort ? 'Sort by Name' : 'Sort by Rating'}</button> */}
         {cigarsList}
 

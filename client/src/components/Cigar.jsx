@@ -59,7 +59,7 @@ export default class Cigar extends Component {
     const cigar = this.state.cigar
 
     const updateCigarForm = (
-      <Paper style={{ padding: 10, backgroundColor: '#FCCF5D', margin: 15 }}>
+      <Paper  style={{ padding: 10, backgroundColor: '#FCCF5D', margin: 'auto', maxWidth: '500px' }}>
       <form onSubmit={this.handleUpdate}>
       <div>
         <input type='text' name='cigarName' value={this.state.cigar.cigarName} placeholder='Cigar Name' onChange={this.handleChange} />
@@ -80,7 +80,7 @@ export default class Cigar extends Component {
 
     const cigarInfo = (
       <div className="welcome-page">
-        <Paper style={{ padding: 10, backgroundColor: '#FCCF5D', margin: 15 }}>
+        <Paper style={{ padding: 10, backgroundColor: '#FCCF5D', margin: 'auto', maxWidth: '500px' }}>
 
           <div>Name: {cigar.cigarName}</div>
           <div>Rating: {cigar.rating}</div>

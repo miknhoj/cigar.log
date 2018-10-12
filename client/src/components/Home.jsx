@@ -56,7 +56,8 @@ export default class Home extends Component {
   render() {
     const usersList = this.state.users.map((user, i) => {
       return (
-        <Paper style={{ padding: 10, backgroundColor: '#FCCF5D', margin: 15 }} key={i}>
+        <div className='margins'>
+        <Paper style={{ padding: 10, backgroundColor: '#FCCF5D', margin: 'auto', maxWidth: '500px' }} key={i}>
           <Link to={`/users/${user._id}`}>
             <div className='list'>
               {user.userName}
@@ -66,6 +67,7 @@ export default class Home extends Component {
             </div>
           </Link>
         </Paper>
+        </div>
       )
     })
     return (
@@ -75,16 +77,18 @@ export default class Home extends Component {
           {usersList}
 
           {this.state.createUser ?
-            <Paper>
-              <form onSubmit={this.handleNew}>
-                <div>
-                  <input type='text' name='userName' value={this.state.newUser.userName} placeholder='User Name' onChange={this.handleChange} />
-                  <input type='text' name='age' value={this.state.newUser.age} placeholder='Age' onChange={this.handleChange} />
-                  <input type='text' name='location' value={this.state.newUser.location} placeholder='Location' onChange={this.handleChange} />
-                  <Button variant="contained" style={{ backgroundColor: '#118293'}} type='submit'>Create New User</Button>
-                </div>
-              </form>
-            </Paper> :
+            <div className="margins">
+              <Paper style={{ padding: 10, backgroundColor: '#FCCF5D', margin: 'auto', maxWidth: '500px' }}>
+                <form onSubmit={this.handleNew}>
+                  <div>
+                    <input type='text' name='userName' value={this.state.newUser.userName} placeholder='User Name' onChange={this.handleChange} />
+                    <input type='text' name='age' value={this.state.newUser.age} placeholder='Age' onChange={this.handleChange} />
+                    <input type='text' name='location' value={this.state.newUser.location} placeholder='Location' onChange={this.handleChange} />
+                    <div><Button variant="contained" style={{ backgroundColor: '#118293', color: '#F9A05C', margin: 10 }} type='submit'>Create New User</Button></div>
+                  </div>
+                </form>
+              </Paper> 
+            </div>: 
             null
           }
 

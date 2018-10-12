@@ -13,6 +13,12 @@ input {
   width:50vw;
   background-color: transparent;
   border-color: #118293;
+  height: 25px;
+  margin: 5px;
+  max-width: 490px;
+  font-size: 15px;
+  font-weight: bold;
+
 }
 
 .list{
@@ -28,6 +34,7 @@ input {
 form {
   display: flex;
   margin: auto;
+  max-width: 490px;
 }
 
 .welcome-page{
@@ -81,4 +88,11 @@ a {
   border-color: #F9A05C;
   margin: 10px;
   padding: 15px;
+}
+
+p {
+  color: #FCCF5D;
+}
+.margins {
+  margin: 10px;
 }
