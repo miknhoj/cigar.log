@@ -36,6 +36,7 @@ const john = new User({
     userName: 'John',
     age: '31',
     location: 'Atlanta, GA',    
+    image: 'http://multisim-insigneo.org/wp-content/uploads/2015/02/blank-profile-picture.png',
     cigarLog: [cigarOne, cigarTwo]
 })
 
@@ -43,6 +44,7 @@ const chris = new User({
     userName: 'Chris',
     age: 30,
     location: 'Midtown, GA',
+    imgae: 'http://multisim-insigneo.org/wp-content/uploads/2015/02/blank-profile-picture.png',
     cigarLog: [cigarTwo]
 })
 

@@ -65,8 +65,8 @@ export default class User extends Component {
 
     const cigarsList = this.state.cigars.map((cigar, i) => {
       return (
-        <div className='margins'>
-          <Paper style={{ padding: 10, backgroundColor: '#FCCF5D', margin: 'auto', maxWidth: '500px' }} key={i}>
+        <div className='margins' key={i}>
+          <Paper style={{ padding: 10, backgroundColor: '#FCCF5D', margin: 'auto', maxWidth: '500px' }}>
             <Link to={`/users/${this.state.user._id}/cigarLog/${cigar._id}`}>
               <div>
                 {cigar.cigarName}
@@ -92,6 +92,7 @@ export default class User extends Component {
 
     const userInfo = (
       <div>
+        <img src={this.state.user.image} alt='user'/>
         <div className="sub">{this.state.user.age}</div>
         <div className="sub">{this.state.user.location}</div>
         <Button variant="contained" color="secondary" style={{ margin: 10 }} onClick={() => this.handleDelete()}>Delete User</Button>

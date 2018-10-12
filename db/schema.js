@@ -17,6 +17,7 @@ const UserSchema = new Schema({
     userName: String,
     age: Number,
     location: String,    
+    image: String,
     cigarLog: [CigarSchema]
 })
 
