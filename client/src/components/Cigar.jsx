@@ -53,7 +53,7 @@ export default class Cigar extends Component {
   render() {
     if (this.state.redirect) {
       const userId = this.props.match.params.userId
-      return <Redirect to={`/users/${userId}`}/>
+      return <Redirect to={`/users/${userId}`} />
     }
     const cigar = this.state.cigar
 
@@ -72,28 +72,30 @@ export default class Cigar extends Component {
         <input type='submit' value='Update Cigar Details' />
       </form>
     )
-  
+
     const cigarInfo = (
-      <div>
-        <div>Name: {cigar.cigarName}</div>
-        <div>Rating: {cigar.rating}</div>
-        <div>Manufacturer: {cigar.manufacturer}</div>
-        <div>Origin: {cigar.origin}</div>
-        <div>Body: {cigar.body}</div>
-        <div>Strength: {cigar.strength}</div>
-        <div>Wrapper: {cigar.wrapper}</div>
-        <div>Binder: {cigar.binder}</div>
-        <div>Filler: {cigar.filler}</div>
-        <div>Notes: {cigar.notes}</div>
+      <div className="welcome-page">
+        <Paper style={{ padding: 10, backgroundColor: '#FCCF5D', margin: 15 }}>
+
+          <div>Name: {cigar.cigarName}</div>
+          <div>Rating: {cigar.rating}</div>
+          <div>Manufacturer: {cigar.manufacturer}</div>
+          <div>Origin: {cigar.origin}</div>
+          <div>Body: {cigar.body}</div>
+          <div>Strength: {cigar.strength}</div>
+          <div>Wrapper: {cigar.wrapper}</div>
+          <div>Binder: {cigar.binder}</div>
+          <div>Filler: {cigar.filler}</div>
+          <div>Notes: {cigar.notes}</div>
+
+        </Paper>
       </div>
     )
 
     return (
-      
+
       <div>
-        <Paper>
-          {this.state.updateCigar ? updateCigarForm : cigarInfo}
-          </Paper>
+        {this.state.updateCigar ? updateCigarForm : cigarInfo}
         <Button variant="contained" color="primary" onClick={() => this.toggleUpdateCigar()}>{this.state.updateCigar ? 'Cancel' : 'Edit Cigar Details'}</Button>
         <Button variant="contained" color="secondary" onClick={() => this.handleDelete()}>Delete Cigar</Button>
       </div >

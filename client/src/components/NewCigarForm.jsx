@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Button from '@material-ui/core/Button';
 
 export default class NewCigarForm extends Component {
   state = {
@@ -57,7 +58,7 @@ export default class NewCigarForm extends Component {
         null
         }
 
-        <button onClick={() => this.toggleCreateCigar()}>{this.state.createCigar? 'Cancel' : 'Add New Cigar'} </button>
+        <Button variant="contained" style={{ backgroundColor: '#118293' }} onClick={() => this.toggleCreateCigar()}>{this.state.createCigar? 'Cancel' : 'Add New Cigar'} </Button>
       </div>
     )
   }

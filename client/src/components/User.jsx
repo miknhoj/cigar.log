@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Link, Redirect } from 'react-router-dom'
 import NewCigarForm from './NewCigarForm';
 import { Paper } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
 
 export default class User extends Component {
   state = {
@@ -64,19 +65,17 @@ export default class User extends Component {
 
     const cigarsList = this.state.cigars.map((cigar, i) => {
       return (
-        
-          <div key={i} className="list">
-          <Paper>
-            <Link to={`/users/${this.state.user._id}/cigarLog/${cigar._id}`}>
+        <Paper style={{ padding: 10, backgroundColor: '#FCCF5D', margin: 15 }} key={i}>
+          <Link to={`/users/${this.state.user._id}/cigarLog/${cigar._id}`}>
+            <div>
               {cigar.cigarName}
-            </Link>
-            <div> Rating: {cigar.rating} </div>
-          </Paper>
-          </div>
-       
+              <div> Rating: {cigar.rating} </div>
+            </div>
+          </Link>
+        </Paper>
       )
     })
-  
+
     const updateForm = (
       <form onSubmit={this.handleUpdate}>
         <h1>{this.state.user.userName}</h1>
@@ -89,9 +88,12 @@ export default class User extends Component {
 
     const userInfo = (
       <div>
-        <h1>{this.state.user.userName}</h1>
-        <div>{this.state.user.age}</div>
-        <div>{this.state.user.location}</div>
+        <div className="header">
+          {this.state.user.userName}
+          <Button variant="contained" color="secondary" style={{margin: 10}} onClick={() => this.handleDelete()}>Delete User</Button>
+        </div>
+        <div className="sub">{this.state.user.age}</div>
+        <div className="sub">{this.state.user.location}</div>
       </div>
     )
 
@@ -99,14 +101,12 @@ export default class User extends Component {
       <div>
         {this.state.updateUser ? updateForm : userInfo}
 
-        <button onClick={() => this.toggleUpdateUser()}>{this.state.updateUser ? 'Back' : 'Edit User Details'}</button>
-        <button onClick={() => this.toggleSort()}>{this.state.sort ? 'Sort by Name' : 'Sort by Rating'}</button>
+        <Button variant="contained" style={{ backgroundColor: '#118293', margin: 10 }} onClick={() => this.toggleUpdateUser()}>{this.state.updateUser ? 'Back' : 'Edit User Details'}</Button>
+        {/* <button onClick={() => this.toggleSort()}>{this.state.sort ? 'Sort by Name' : 'Sort by Rating'}</button> */}
         {cigarsList}
 
 
         <NewCigarForm addNewCigar={this.addNewCigar} />
-
-        <button onClick={() => this.handleDelete()}>Delete User</button>
       </div>
     )
   }

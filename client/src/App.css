@@ -38,7 +38,7 @@ form {
 
 .header {
   font-family: 'Permanent Marker', cursive;
-  font-size: 70px;
+  font-size: 50px;
   color: #FCCF5D;
 }
 
@@ -61,4 +61,9 @@ a {
   text-decoration: none;
   color: #21373D;
   font-weight: bold;
+}
+
+.sub {
+  font-size: 25px;
+  color: #F9A05C;
 }

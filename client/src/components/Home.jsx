@@ -58,14 +58,14 @@ export default class Home extends Component {
     const usersList = this.state.users.map((user, i) => {
       return (
         <Paper style={{padding: 10, backgroundColor: '#FCCF5D', margin:15}}key={i}>
+           <Link to={`/users/${user._id}`}>
           <div className='list'>
-            <Link to={`/users/${user._id}`}>
               {user.userName}
-            </Link>
             <div>
               {user.age}, {user.location}
             </div>
           </div>
+          </Link>
         </Paper>
       )
     })
