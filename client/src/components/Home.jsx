@@ -11,7 +11,8 @@ export default class Home extends Component {
     newUser: {
       userName: '',
       age: '',
-      location: ''
+      location: '',
+      image: ''
     },
     createUser: false,
     createError: false
@@ -59,6 +60,7 @@ export default class Home extends Component {
         <div className='margins' key={i}>
         <Paper style={{ padding: 10, backgroundColor: '#FCCF5D', margin: 'auto', maxWidth: '500px' }}>
           <Link to={`/users/${user._id}`}>
+          <img src={user.image} alt='user'/>
             <div className='list'>
               {user.userName}
               <div>

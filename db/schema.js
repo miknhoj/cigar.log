@@ -17,7 +17,10 @@ const UserSchema = new Schema({
     userName: String,
     age: Number,
     location: String,    
-    image: String,
+    image: {
+      type: String,
+      default: "http://multisim-insigneo.org/wp-content/uploads/2015/02/blank-profile-picture.png",
+    },
     cigarLog: [CigarSchema]
 })
 
