@@ -17,7 +17,7 @@ For this project, I spent a lot of time planning the project out and it helped m
 
 ## Something Cool
 
-Using ternary operators is a great way to simplify your code. For this project I used ternary's several times inconjunction with toggle methods to render different components. A very handy and cool tool!
+Using ternary operators is a great way to simplify your code. For this project I used ternary operatorss several times in conjunction with toggle methods to render different components. A very handy and cool tool!
 
 ---
 ## Technologies Used
@@ -35,4 +35,9 @@ Using ternary operators is a great way to simplify your code. For this project I
 
 ## Final Thoughts and Version 2.0
 
+Planning is very important regardless of the size of the project. Even for a simple project like this one, investing in the planning process will help prevent you from getting lost and keep you on a path that will help you to acheive the goal. 
 
+For the next version I would like to continue working on a few additional features that I couldn't quite get to work in this version: 
+* a sort method that will sort the cigars in my log by the rating I give it.
+* a 3rd party API (Google or cigar vendor) so that the user can search a cigar that they enjoyed to purchase it
+* modals - tried using the modals in material ui, but had some issues. Would like to get forms to show up on a modal.
