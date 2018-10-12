@@ -82,18 +82,16 @@ export default class User extends Component {
         <input type='text' name='userName' onChange={this.handleChange} value={this.state.user.userName} />
         <input type='text' name='age' onChange={this.handleChange} value={this.state.user.age} />
         <input type='text' name='location' onChange={this.handleChange} value={this.state.user.location} />
-        <Button variant="contained" style={{ backgroundColor: '#118293', margin: 10 }} input type='submit'>Update User</Button>
+        <Button variant="contained" style={{ backgroundColor: '#118293', margin: 10 }} type='submit'>Update User</Button>
       </form>
       </Paper>
     )
 
     const userInfo = (
-      <div>
-   
-          <Button variant="contained" color="secondary" style={{margin: 10}} onClick={() => this.handleDelete()}>Delete User</Button>
- 
+      <div> 
         <div className="sub">{this.state.user.age}</div>
         <div className="sub">{this.state.user.location}</div>
+        <Button variant="contained" color="secondary" style={{margin: 10}} onClick={() => this.handleDelete()}>Delete User</Button>
       </div>
     )
 

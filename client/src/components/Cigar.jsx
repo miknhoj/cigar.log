@@ -94,13 +94,15 @@ export default class Cigar extends Component {
         </Paper>
       </div>
     )
+    const userId = this.props.match.params.userId
+    
     return (
 
       <div>
         {this.state.updateCigar ? updateCigarForm : cigarInfo}
         <Button variant="contained" style={{ backgroundColor: '#118293', margin: 10 }} onClick={() => this.toggleUpdateCigar()}>{this.state.updateCigar ? 'Cancel' : 'Edit Cigar Details'}</Button>
         <Button variant="contained" color="secondary" onClick={() => this.handleDelete()}>Delete Cigar</Button>
-        <div><Link to={`/users/${this.state.user._id}`}> <button className="button">Back</button></Link></div>
+        <div><Link to={`/users/${userId}`}> <button className="button">Back</button></Link></div>
       </div>
     )
   }
