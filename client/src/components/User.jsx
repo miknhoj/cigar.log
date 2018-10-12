@@ -4,7 +4,6 @@ import { Link, Redirect } from 'react-router-dom'
 import NewCigarForm from './NewCigarForm';
 import { Paper } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
-import BottomNav from './Layout/BottomNav';
 
 export default class User extends Component {
   state = {
@@ -78,21 +77,21 @@ export default class User extends Component {
     })
 
     const updateForm = (
+      <Paper style={{ padding: 10, backgroundColor: '#FCCF5D', margin: 15 }} >
       <form onSubmit={this.handleUpdate}>
-        <h1>{this.state.user.userName}</h1>
         <input type='text' name='userName' onChange={this.handleChange} value={this.state.user.userName} />
         <input type='text' name='age' onChange={this.handleChange} value={this.state.user.age} />
         <input type='text' name='location' onChange={this.handleChange} value={this.state.user.location} />
         <Button variant="contained" style={{ backgroundColor: '#118293', margin: 10 }} input type='submit'>Update User</Button>
       </form>
+      </Paper>
     )
 
     const userInfo = (
       <div>
-        <div className="header">
-          {this.state.user.userName}
+   
           <Button variant="contained" color="secondary" style={{margin: 10}} onClick={() => this.handleDelete()}>Delete User</Button>
-        </div>
+ 
         <div className="sub">{this.state.user.age}</div>
         <div className="sub">{this.state.user.location}</div>
       </div>
@@ -100,6 +99,10 @@ export default class User extends Component {
 
     return (
       <div>
+        <div className="header">
+        {this.state.user.userName}
+        </div>
+
         {this.state.updateUser ? updateForm : userInfo}
 
         <Button variant="contained" style={{ backgroundColor: '#118293', margin: 10 }} onClick={() => this.toggleUpdateUser()}>{this.state.updateUser ? 'Back' : 'Edit User Details'}</Button>
@@ -107,7 +110,8 @@ export default class User extends Component {
         {cigarsList}
 
         <NewCigarForm addNewCigar={this.addNewCigar} />
-        <BottomNav />
+
+        <Link to="/home"> <button className="button">Back</button></Link>
       </div>
     )
   }

@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 import { Paper } from '@material-ui/core'
 import Button from '@material-ui/core/Button'
 
 export default class Cigar extends Component {
   state = {
+    user: {},
     cigar: {},
     updateCigar: false,
     redirect: false
@@ -58,7 +59,7 @@ export default class Cigar extends Component {
     const cigar = this.state.cigar
 
     const updateCigarForm = (
-      <Paper>
+      <Paper style={{ padding: 10, backgroundColor: '#FCCF5D', margin: 15 }}>
       <form onSubmit={this.handleUpdate}>
         <input type='text' name='cigarName' value={this.state.cigar.cigarName} placeholder='Cigar Name' onChange={this.handleChange} />
         <input type='text' name='rating' value={this.state.cigar.rating} placeholder='Rating 1-100' onChange={this.handleChange} />
@@ -70,7 +71,7 @@ export default class Cigar extends Component {
         <input type='text' name='binder' value={this.state.cigar.binder} placeholder='Binder' onChange={this.handleChange} />
         <input type='text' name='filler' value={this.state.cigar.filler} placeholder='Filler' onChange={this.handleChange} />
         <input type='text' name='notes' value={this.state.cigar.notes} placeholder='Notes' onChange={this.handleChange} />
-        <input className='button' type='submit' value='Update Cigar Details' />
+        <button className='button' type='submit'> Update Cigar Details </button>
       </form>
       </Paper>
     )
@@ -93,14 +94,14 @@ export default class Cigar extends Component {
         </Paper>
       </div>
     )
-
     return (
 
       <div>
         {this.state.updateCigar ? updateCigarForm : cigarInfo}
         <Button variant="contained" style={{ backgroundColor: '#118293', margin: 10 }} onClick={() => this.toggleUpdateCigar()}>{this.state.updateCigar ? 'Cancel' : 'Edit Cigar Details'}</Button>
         <Button variant="contained" color="secondary" onClick={() => this.handleDelete()}>Delete Cigar</Button>
-      </div >
+        <div><Link to={`/users/${this.state.user._id}`}> <button className="button">Back</button></Link></div>
+      </div>
     )
   }
 }
