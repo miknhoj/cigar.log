@@ -35,10 +35,4 @@ Using ternary operators is a great way to simplify your code. For this project I
 
 ## Final Thoughts and Version 2.0
 
-Getting help after being stuck on an issue after awhile, talking through the code with classmates, and not letting frustration deter me from 
-
-There's a couple things I wished I could've gotten to. 
-* For the adding a Game page - I would've liked to add a calender that the user can see and select the date for the game. 
-* Adding more styles to make the app look a more modern and user-inviting (maybe some images, more colors, more design)
-* Consolidate the stats data into a table
 
