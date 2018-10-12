@@ -4,7 +4,7 @@ import { Link, Redirect } from 'react-router-dom'
 import NewCigarForm from './NewCigarForm';
 import { Paper } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
-import Modal from './Layout/Modal'
+import BottomNav from './Layout/BottomNav';
 
 export default class User extends Component {
   state = {
@@ -106,8 +106,8 @@ export default class User extends Component {
         {/* <button onClick={() => this.toggleSort()}>{this.state.sort ? 'Sort by Name' : 'Sort by Rating'}</button> */}
         {cigarsList}
 
-        <Modal addNewCigar={this.addNewCigar}/>
-        {/* <NewCigarForm addNewCigar={this.addNewCigar} /> */}
+        <NewCigarForm addNewCigar={this.addNewCigar} />
+        <BottomNav />
       </div>
     )
   }

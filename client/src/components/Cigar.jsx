@@ -58,9 +58,10 @@ export default class Cigar extends Component {
     const cigar = this.state.cigar
 
     const updateCigarForm = (
+      <Paper>
       <form onSubmit={this.handleUpdate}>
         <input type='text' name='cigarName' value={this.state.cigar.cigarName} placeholder='Cigar Name' onChange={this.handleChange} />
-        <input type='number' name='rating' min='1' max='5' value={this.state.cigar.rating} placeholder='Rating' onChange={this.handleChange} />
+        <input type='text' name='rating' value={this.state.cigar.rating} placeholder='Rating 1-100' onChange={this.handleChange} />
         <input type='text' name='manufacturer' value={this.state.cigar.manufacturer} placeholder='Manufacturer' onChange={this.handleChange} />
         <input type='text' name='origin' value={this.state.cigar.origin} placeholder='Origin' onChange={this.handleChange} />
         <input type='text' name='body' value={this.state.cigar.body} placeholder='Body' onChange={this.handleChange} />
@@ -69,8 +70,9 @@ export default class Cigar extends Component {
         <input type='text' name='binder' value={this.state.cigar.binder} placeholder='Binder' onChange={this.handleChange} />
         <input type='text' name='filler' value={this.state.cigar.filler} placeholder='Filler' onChange={this.handleChange} />
         <input type='text' name='notes' value={this.state.cigar.notes} placeholder='Notes' onChange={this.handleChange} />
-        <Button variant="contained" style={{ backgroundColor: '#118293', margin: 10 }} input type='submit'>Update Cigar Details' </Button>
+        <input className='button' type='submit' value='Update Cigar Details' />
       </form>
+      </Paper>
     )
 
     const cigarInfo = (

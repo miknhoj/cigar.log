@@ -23,9 +23,9 @@ export default class NewCigarForm extends Component {
     this.setState({ newCigar })
   }
 
-  // toggleCreateCigar = () => {
-  //   this.setState({ createCigar: !this.state.createCigar })
-  // }
+  toggleCreateCigar = () => {
+    this.setState({ createCigar: !this.state.createCigar })
+  }
 
   handleNew = (e) => {
     // prevent form from sending GET request
@@ -41,7 +41,7 @@ export default class NewCigarForm extends Component {
 
     return (
       <div>
-        {/* {this.state.createCigar ? */}
+        {this.state.createCigar ?
           <form onSubmit={this.handleNew}>
             <input type='text' name='cigarName' value={this.state.newCigar.cigarName} placeholder='Cigar Name' onChange={this.handleChange} />
             <input type='text' name='rating' placeholder='Rating' onChange={this.handleChange} />
@@ -53,13 +53,12 @@ export default class NewCigarForm extends Component {
             <input type='text' name='binder' placeholder='Binder' onChange={this.handleChange} />
             <input type='text' name='filler' placeholder='Filler' onChange={this.handleChange} />
             <input type='text' name='notes' placeholder='Notes' onChange={this.handleChange} />
-            <Button variant="contained" style={{ backgroundColor: '#118293', margin: 10 }} input type='submit'>Add New Cigar</Button>
-          </form> 
-          {/* : */}
-        {/* null
-        } */}
+            <input type='submit'value='Add New Cigar'/>
+          </form> :
+        null
+        }
 
-        {/* <Button variant="contained" style={{ backgroundColor: '#118293', margin: 10 }} onClick={() => this.toggleCreateCigar()}>{this.state.createCigar? 'Cancel' : 'Add New Cigar'} </Button> */}
+        <Button variant="contained" style={{ backgroundColor: '#118293', margin: 10 }} onClick={() => this.toggleCreateCigar()}>{this.state.createCigar? 'Cancel' : 'Add New Cigar'} </Button>
       </div>
     )
   }

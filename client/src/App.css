@@ -1,6 +1,7 @@
 body {
   text-align: center;
 }
+
 .period {
   color:#118293;
 }
@@ -10,6 +11,7 @@ img {
 
 input {
   display: flex;
+  width:50vw;
 }
 
 .list{
@@ -24,7 +26,6 @@ input {
 
 form {
   margin: 0 auto;
-  width: 50vw;
 }
 
 .welcome-page{
@@ -68,4 +69,10 @@ a {
 .sub {
   font-size: 25px;
   color: #F9A05C;
+}
+
+.button{
+  background-color: #FCCF5D;
+  font-size: 15px;  
+  font-family: "Roboto";
 }

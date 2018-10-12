@@ -5,7 +5,6 @@ import Button from '@material-ui/core/Button';
 import { Paper } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 
-
 export default class Home extends Component {
   state = {
     users: [],
