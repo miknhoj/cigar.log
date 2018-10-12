@@ -53,12 +53,12 @@ export default class NewCigarForm extends Component {
             <input type='text' name='binder' placeholder='Binder' onChange={this.handleChange} />
             <input type='text' name='filler' placeholder='Filler' onChange={this.handleChange} />
             <input type='text' name='notes' placeholder='Notes' onChange={this.handleChange} />
-            <input type='submit' value='Add New Cigar' />
+            <Button variant="contained" style={{ backgroundColor: '#118293', margin: 10 }} input type='submit'>Add New Cigar</Button>
           </form> :
         null
         }
 
-        <Button variant="contained" style={{ backgroundColor: '#118293' }} onClick={() => this.toggleCreateCigar()}>{this.state.createCigar? 'Cancel' : 'Add New Cigar'} </Button>
+        <Button variant="contained" style={{ backgroundColor: '#118293', margin: 10 }} onClick={() => this.toggleCreateCigar()}>{this.state.createCigar? 'Cancel' : 'Add New Cigar'} </Button>
       </div>
     )
   }

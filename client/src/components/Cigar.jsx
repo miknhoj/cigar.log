@@ -69,7 +69,7 @@ export default class Cigar extends Component {
         <input type='text' name='binder' value={this.state.cigar.binder} placeholder='Binder' onChange={this.handleChange} />
         <input type='text' name='filler' value={this.state.cigar.filler} placeholder='Filler' onChange={this.handleChange} />
         <input type='text' name='notes' value={this.state.cigar.notes} placeholder='Notes' onChange={this.handleChange} />
-        <input type='submit' value='Update Cigar Details' />
+        <Button variant="contained" style={{ backgroundColor: '#118293', margin: 10 }} input type='submit'>Update Cigar Details' </Button>
       </form>
     )
 
@@ -96,7 +96,7 @@ export default class Cigar extends Component {
 
       <div>
         {this.state.updateCigar ? updateCigarForm : cigarInfo}
-        <Button variant="contained" color="primary" onClick={() => this.toggleUpdateCigar()}>{this.state.updateCigar ? 'Cancel' : 'Edit Cigar Details'}</Button>
+        <Button variant="contained" style={{ backgroundColor: '#118293', margin: 10 }} onClick={() => this.toggleUpdateCigar()}>{this.state.updateCigar ? 'Cancel' : 'Edit Cigar Details'}</Button>
         <Button variant="contained" color="secondary" onClick={() => this.handleDelete()}>Delete Cigar</Button>
       </div >
     )

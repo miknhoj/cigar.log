@@ -1,7 +1,9 @@
 body {
   text-align: center;
 }
-
+.period {
+  color:#118293;
+}
 img {
   width: 50px;
 }
