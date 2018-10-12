@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom'
 import Button from '@material-ui/core/Button';
-import AddButton from './Layout/AddButton';
 import { Paper } from '@material-ui/core';
+import AddIcon from '@material-ui/icons/Add';
 
 
 export default class Home extends Component {
@@ -85,8 +85,7 @@ export default class Home extends Component {
               null
             }
 
-            <Button variant="contained" style={{backgroundColor:'#118293'}} onClick={() => this.toggleCreateUser()}>{this.state.createUser ? 'Cancel' : 'Add New User'} </Button>
-            <AddButton toggleCreateUser={this.toggleCreateUser}>{this.state.createUser ? 'Cancel' : 'Add New User'} </AddButton>
+            <Button variant="contained" style={{backgroundColor:'#118293', color:'#F9A05C'}} onClick={() => this.toggleCreateUser()}>{this.state.createUser ? 'Cancel' : <AddIcon />} </Button>
           </div>
 
         
