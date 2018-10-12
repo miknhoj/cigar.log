@@ -79,9 +79,9 @@ export default class User extends Component {
     const updateForm = (
       <Paper style={{ padding: 10, backgroundColor: '#FCCF5D', margin: 15 }} >
       <form onSubmit={this.handleUpdate}>
-        <input type='text' name='userName' onChange={this.handleChange} value={this.state.user.userName} />
+        <div><input type='text' name='userName' onChange={this.handleChange} value={this.state.user.userName} />
         <input type='text' name='age' onChange={this.handleChange} value={this.state.user.age} />
-        <input type='text' name='location' onChange={this.handleChange} value={this.state.user.location} />
+        <input type='text' name='location' onChange={this.handleChange} value={this.state.user.location} /></div>
         <Button variant="contained" style={{ backgroundColor: '#118293', margin: 10 }} type='submit'>Update User</Button>
       </form>
       </Paper>

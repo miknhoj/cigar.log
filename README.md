@@ -31,8 +31,11 @@ Using ternary operators is a great way to simplify your code. For this project I
 * Mongoose
 * Postman
 * MongoDB Compass
-----
+---
+## Shout Outs
+Daniel, Andrew, MOON!(finding all my stupid syntax errors), Taylor, Lauren, Emmy, Gouda, Qing (Awesome set up instructions), Evening TA's James and William.
 
+---
 ## Final Thoughts and Version 2.0
 
 Planning is very important regardless of the size of the project. Even for a simple project like this one, investing in the planning process will help prevent you from getting lost and keep you on a path that will help you to acheive the goal. 

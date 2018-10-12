@@ -56,14 +56,14 @@ export default class Home extends Component {
   render() {
     const usersList = this.state.users.map((user, i) => {
       return (
-        <Paper style={{padding: 10, backgroundColor: '#FCCF5D', margin:15}}key={i}>
-           <Link to={`/users/${user._id}`}>
-          <div className='list'>
+        <Paper style={{ padding: 10, backgroundColor: '#FCCF5D', margin: 15 }} key={i}>
+          <Link to={`/users/${user._id}`}>
+            <div className='list'>
               {user.userName}
-            <div>
-              {user.age}, {user.location}
+              <div>
+                {user.age}, {user.location}
+              </div>
             </div>
-          </div>
           </Link>
         </Paper>
       )
@@ -71,23 +71,27 @@ export default class Home extends Component {
     return (
       <div>
         <div className="header">Users</div>
-          <div>
-            {usersList}
+        <div>
+          {usersList}
 
-            {this.state.createUser ?
+          {this.state.createUser ?
+            <Paper>
               <form onSubmit={this.handleNew}>
-                <input type='text' name='userName' value={this.state.newUser.userName} placeholder='User Name' onChange={this.handleChange} />
-                <input type='text' name='age' value={this.state.newUser.age} placeholder='Age' onChange={this.handleChange} />
-                <input type='text' name='location' value={this.state.newUser.location} placeholder='Location' onChange={this.handleChange} />
-                <input type='submit' value='Create New User' />
-              </form> :
-              null
-            }
+                <div>
+                  <input type='text' name='userName' value={this.state.newUser.userName} placeholder='User Name' onChange={this.handleChange} />
+                  <input type='text' name='age' value={this.state.newUser.age} placeholder='Age' onChange={this.handleChange} />
+                  <input type='text' name='location' value={this.state.newUser.location} placeholder='Location' onChange={this.handleChange} />
+                  <input type='submit' value='Create New User' />
+                </div>
+              </form>
+            </Paper> :
+            null
+          }
 
-            <Button variant="contained" style={{backgroundColor:'#118293', color:'#F9A05C'}} onClick={() => this.toggleCreateUser()}>{this.state.createUser ? 'Cancel' : <AddIcon />} </Button>
-          </div>
+          <Button variant="contained" style={{ backgroundColor: '#118293', color: '#F9A05C' }} onClick={() => this.toggleCreateUser()}>{this.state.createUser ? 'Cancel' : <AddIcon />} </Button>
+        </div>
 
-        
+
         {this.state.createError ?
           <div>
             <p>user name must be four characters or longer</p>

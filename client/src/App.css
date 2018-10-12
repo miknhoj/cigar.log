@@ -10,8 +10,9 @@ img {
 }
 
 input {
-  display: flex;
   width:50vw;
+  background-color: transparent;
+  border-color: #118293;
 }
 
 .list{
@@ -25,7 +26,9 @@ input {
 }
 
 form {
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
 }
 
 .welcome-page{
