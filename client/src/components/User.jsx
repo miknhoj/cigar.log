@@ -93,7 +93,7 @@ export default class User extends Component {
 
     const userInfo = (
       <div>
-        <img className="profile" src={this.state.user.image} alt='user'/>
+        <img src={this.state.user.image} className="profile" alt='user'/>
         <div className="sub">{this.state.user.age}</div>
         <div className="sub">{this.state.user.location}</div>
         <Button variant="contained" color="secondary" style={{ margin: 10 }} onClick={() => this.handleDelete()}>Delete User</Button>

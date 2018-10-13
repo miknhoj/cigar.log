@@ -60,7 +60,7 @@ export default class Home extends Component {
         <div className='margins' key={i}>
         <Paper style={{ padding: 10, backgroundColor: '#FCCF5D', margin: 'auto', maxWidth: '500px' }}>
           <Link to={`/users/${user._id}`}>
-          <img src={user.image} alt='user'/>
+          <img src={user.image} className='profile' alt='user'/>
             <div className='list'>
               {user.userName}
               <div>
