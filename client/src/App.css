@@ -6,9 +6,14 @@ body {
   color:#118293;
 }
 img {
-  width: 50px;
+  width: 100px;
+  border-radius: 100px;
+  border: solid 5px #118293;
 }
 
+.welcome {
+  height:;
+}
 input {
   width:50vw;
   background-color: transparent;
@@ -96,3 +101,4 @@ p {
 .margins {
   margin: 10px;
 }
+
