@@ -86,7 +86,7 @@ export default class Home extends Component {
                     <input type='text' name='userName' value={this.state.newUser.userName} placeholder='User Name' onChange={this.handleChange} />
                     <input type='text' name='age' value={this.state.newUser.age} placeholder='Age' onChange={this.handleChange} />
                     <input type='text' name='location' value={this.state.newUser.location} placeholder='Location' onChange={this.handleChange} />
-                    <input type='text' name='image' value={this.state.newUser.image} placeholder='Image Url' onChange={this.handeleChange}/>
+                    <input type='text' name='image' value={this.state.newUser.image} placeholder='Image Url' onChange={this.handleChange}/>
                     <div><Button variant="contained" style={{ backgroundColor: '#118293', color: '#F9A05C', margin: 10 }} type='submit'>Create New User</Button></div>
                   </div>
                 </form>
