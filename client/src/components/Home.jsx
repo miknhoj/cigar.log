@@ -43,6 +43,7 @@ export default class Home extends Component {
     const users = [...this.state.users]
     users.push(response.data)
     this.setState({ users })
+    await this.setState({ createUser:!this.state.createUser})
   }
 
   toggleCreateError = () => {
@@ -81,13 +82,13 @@ export default class Home extends Component {
           {this.state.createUser ?
             <div className="margins">
               <Paper style={{ padding: 10, backgroundColor: '#FCCF5D', margin: 'auto', maxWidth: '500px' }}>
-                <form onSubmit={this.handleNew}>
+                <form>
                   <div>
                     <input type='text' name='userName' value={this.state.newUser.userName} placeholder='User Name' onChange={this.handleChange} />
                     <input type='text' name='age' value={this.state.newUser.age} placeholder='Age' onChange={this.handleChange} />
                     <input type='text' name='location' value={this.state.newUser.location} placeholder='Location' onChange={this.handleChange} />
                     <input type='text' name='image' value={this.state.newUser.image} placeholder='Image Url' onChange={this.handleChange}/>
-                    <div><Button variant="contained" style={{ backgroundColor: '#118293', color: '#F9A05C', margin: 10 }} type='submit'>Create New User</Button></div>
+                    <div><Button variant="contained" style={{ backgroundColor: '#118293', color: '#F9A05C', margin: 10 }} onClick={this.handleNew}>Create New User</Button></div>
                   </div>
                 </form>
               </Paper> 
