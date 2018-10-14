@@ -44,6 +44,7 @@ export default class User extends Component {
     const userId = this.props.match.params.userId
     const updatedUser = this.state.user
     await axios.put(`/api/users/${userId}`, updatedUser)
+    await this.setState({ updateUser:!this.state.updateUser })
   }
 
   toggleUpdateUser = () => {
@@ -80,14 +81,14 @@ export default class User extends Component {
 
     const updateForm = (
       <Paper style={{ padding: 10, backgroundColor: '#FCCF5D', margin: 'auto', maxWidth: '500px' }} >
-        <form onSubmit={this.handleUpdate}>
+        <form>
           <div>
             <input type='text' name='userName' onChange={this.handleChange} value={this.state.user.userName} placeholder='Name' />
             <input type='text' name='age' onChange={this.handleChange} value={this.state.user.age} placeholder='Age' />
             <input type='text' name='location' onChange={this.handleChange} value={this.state.user.location} placeholder='Location' />
             <input type='text' name='image' onChange={this.handleChange} value= {this.state.user.image} placeholder='Image Url' />
             <div>
-              <Button variant="contained" style={{ backgroundColor: '#118293', margin: 10 }} type='submit'>Update User</Button>
+              <Button variant="contained" style={{ backgroundColor: '#118293', margin: 10 }} onClick={this.handleUpdate}>Update User</Button>
             </div>
           </div>
         </form>
