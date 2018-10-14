@@ -63,7 +63,7 @@ export default class NewCigarForm extends Component {
           null
         }
 
-        <Button variant="contained" style={{ backgroundColor: '#118293', margin: 10 }} onClick={() => this.toggleCreateCigar()}>{this.state.createCigar ? 'Cancel' : 'Add New Cigar'} </Button>
+        <Button variant="contained" style={{ backgroundColor: '#118293', color: '#F9A05C', margin: 10 }} onClick={() => this.toggleCreateCigar()}>{this.state.createCigar ? 'Cancel' : 'Add New Cigar'} </Button>
       </div>
     )
   }

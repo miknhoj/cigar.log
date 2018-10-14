@@ -39,6 +39,7 @@ export default class Cigar extends Component {
     const updatedCigar = this.state.cigar
     console.log(updatedCigar)
     await axios.put(`/api/users/${userId}/cigarLog/${cigarId}`, updatedCigar)
+    await this.setState({ updateCigar: !this.state.updateCigar})
   }
   toggleUpdateCigar = () => {
     this.setState({ updateCigar: !this.state.updateCigar })
@@ -59,6 +60,7 @@ export default class Cigar extends Component {
     const cigar = this.state.cigar
 
     const updateCigarForm = (
+      <div className="margins">
       <Paper  style={{ padding: 10, backgroundColor: '#FCCF5D', margin: 'auto', maxWidth: '500px' }}>
       <form onSubmit={this.handleUpdate}>
       <div>
@@ -72,14 +74,15 @@ export default class Cigar extends Component {
         <input type='text' name='binder' value={this.state.cigar.binder} placeholder='Binder' onChange={this.handleChange} />
         <input type='text' name='filler' value={this.state.cigar.filler} placeholder='Filler' onChange={this.handleChange} />
         <input type='text' name='notes' value={this.state.cigar.notes} placeholder='Notes' onChange={this.handleChange} />
-        <button className='button' type='submit'> Update Cigar Details </button>
+        <div><Button variant="contained" style={{ backgroundColor: '#118293', color: '#F9A05C', margin: 10 }} onClick={this.handleUpdate}>Update Cigar Details </Button></div>
         </div>
       </form>
       </Paper>
+      </div>
     )
 
     const cigarInfo = (
-      <div className="welcome-page">
+      <div className="margins">
         <Paper style={{ padding: 10, backgroundColor: '#FCCF5D', margin: 'auto', maxWidth: '500px' }}>
 
           <div>Name: {cigar.cigarName}</div>
