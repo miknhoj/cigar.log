@@ -36,6 +36,7 @@ export default class NewCigarForm extends Component {
     // this.props.addNewCigar(newCigar)
     this.props.addNewCigar(newCigar)
     // toggle form off
+    this.setState({ createCigar: !this.state.createCigar})
   }
 
   render() {
