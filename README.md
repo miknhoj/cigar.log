@@ -10,10 +10,11 @@ Cigar.Log is THE app to help you keep track of the cigars you enjoy. You can cre
 * [Data Model](https://www.lucidchart.com/invitations/accept/5c131087-549f-4543-bc50-285f6678e5b3)
 * [Wire Frame](https://www.figma.com/file/ZqA27yTS4wrwMOlAzB5mBPil/CIgar.log?node-id=0%3A1)
 
+
 ---
 ## The Process
 
-For this project, I spent a lot of time planning the project out and it helped me reach the minimum viable product (mvp) very quickly. I wrote out my own Trello board from scratch and it helped to go step by step to conceptually understand the steps I would need to take to reach mvp. I worked on the backend first - setting up my routes and acheiving full CRUD on both the user and cigar modals. I utilized Postman to test that all the routes were working. Then I worked on the client side with React where I ran into a lot of issues. After lots of trails, peer input, and instructor guidance, I was able to get full CRUD on the front end. 
+For this project, I spent a lot of time planning the project out and it helped me reach the minimum viable product (mvp) very quickly. I wrote out my own Trello board from scratch and it helped to go step by step to conceptually understand the steps I would need to take to reach mvp. I worked on the backend first - setting up my routes and acheiving full CRUD on both the user and cigar modals. I utilized Postman to test that all the routes were working. Then I worked on the client side with React where I ran into a lot of issues. After lots of trails, peer input, and instructor guidance, I was able to get full CRUD on the front end. I attempted a couple a reach goals on the last day before presentation, but was unable to successfully implement them into my project. I wanted a sort button that would sort the cigars in the log by rating. I also tried adding modals from material-ui to my for forms, but did have enough time to work out the bugs so I had to roll it back to my mvp for presentation. The last day I worked on styling my project. I wanted to note that the [Color Theme](https://coolors.co/f9e49f-fccf5d-f9a05c-118293-21373d) I chose was Charizard, which I thought was fitting. I used the paper and button from material-ui to get some exposure to the css library. 
 
 ## Something Cool
 
